@@ -3087,11 +3087,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\52611156808\\source\\repos\\FilmesMoura.WebAPI\\FilmesMoura.WebAPI.csproj",
+      "projectUniqueName": "C:\\Users\\52611156808\\Desktop\\BackEnd3Sem\\FilmesMoura.WebAPI\\FilmesMoura.WebAPI.csproj",
       "projectName": "FilmesMoura.WebAPI",
-      "projectPath": "C:\\Users\\52611156808\\source\\repos\\FilmesMoura.WebAPI\\FilmesMoura.WebAPI.csproj",
+      "projectPath": "C:\\Users\\52611156808\\Desktop\\BackEnd3Sem\\FilmesMoura.WebAPI\\FilmesMoura.WebAPI.csproj",
       "packagesPath": "C:\\Users\\52611156808\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\52611156808\\source\\repos\\FilmesMoura.WebAPI\\obj\\",
+      "outputPath": "C:\\Users\\52611156808\\Desktop\\BackEnd3Sem\\FilmesMoura.WebAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
