@@ -25,4 +25,7 @@ CREATE TABLE Usuario(
 	Email VARCHAR(256) NOT NULL,
 );
 
+SELECT * FROM Usuario;
+
+SELECT * FROM Filme;
 
