@@ -64,6 +64,7 @@ public class InstituicaoRepository : IInstituicaoRepository
         if(instituicaoBuscada != null)
         {
             _context.Instituicaos.Remove(instituicaoBuscada);
+            _context.SaveChanges();
         }
     }
 

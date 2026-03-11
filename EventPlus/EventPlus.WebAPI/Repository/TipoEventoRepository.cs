@@ -64,6 +64,7 @@ public class TipoEventoRepository : ITipoEventoRepository
         if(tipoEventoBuscado != null)
         {
             _context.TipoEventos.Remove(tipoEventoBuscado);
+            _context.SaveChanges();
         }
     }
     /// <summary>

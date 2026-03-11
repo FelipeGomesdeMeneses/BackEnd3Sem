@@ -26,8 +26,8 @@ public class TipoUsuarioRepository : ITipoUsuarioRepository
         {
             tipoUsuarioBuscado.Titulo = tipoUsuario.Titulo;
 
-            _context.SaveChanges();
         }
+        _context.SaveChanges();
     }
 
     /// <summary>
@@ -61,6 +61,7 @@ public class TipoUsuarioRepository : ITipoUsuarioRepository
         if(tipoUsuarioBuscado != null)
         {
             _context.TipoUsuarios.Remove(tipoUsuarioBuscado);
+            _context.SaveChanges();
         }
     }
 
