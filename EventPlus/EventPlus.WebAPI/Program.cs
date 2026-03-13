@@ -2,6 +2,7 @@ using EventPlus.WebAPI.BdContextEvento;
 using EventPlus.WebAPI.Interface;
 using EventPlus.WebAPI.Repository;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,6 +17,31 @@ builder.Services.AddScoped<ITipoUsuarioRepository, TipoUsuarioRepository>();
 builder.Services.AddScoped<IInstituicaoRepository, InstituicaoRepository>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultChallengeScheme = "JwtBearer";
+    options.DefaultAuthenticateScheme = "JwtBearer";
+})
+.AddJwtBearer("JwtBearer", options =>
+{
+    options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+
+        // A chave secreta (mantenha a mesma que usar no LoginController)
+        IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("eventplus-chave-autenticacao-webapi-dev")),
+
+        ClockSkew = TimeSpan.FromMinutes(5),
+
+        // Identificadores da sua API
+        ValidIssuer = "eventplus_api",
+        ValidAudience = "eventplus_api"
+    };
+});
+
+builder.Services.AddEndpointsApiExplorer();
 
 //Adiciona Swagger
 builder.Services.AddEndpointsApiExplorer();
@@ -78,6 +104,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 
